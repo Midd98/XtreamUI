@@ -47,6 +47,9 @@ if (isset($_POST["submit_user"])) {
     } else {
         $rArray["exp_date"] = null;
     }
+    if( empty($_POST['username']) || empty($_POST['password']) ){
+        $_STATUS = 3; // Username or Password field are empty
+    }
     if (!isset($_STATUS)) {
         foreach($_POST as $rKey => $rValue) {
             if (isset($rArray[$rKey])) {
